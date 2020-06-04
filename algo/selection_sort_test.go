@@ -1,8 +1,9 @@
 package algo
 
 import (
-	"math/rand"
 	"testing"
+
+	"github.com/hlmerscher/go-algo/helper"
 )
 
 func TestSelectionSort(t *testing.T) {
@@ -17,18 +18,10 @@ func TestSelectionSort(t *testing.T) {
 	}
 }
 
-func TestSelectionSortRandomCollection(t *testing.T) {
-	col := make([]int, 1000)
-	for i := 0; i < 1000; i++ {
-		col = append(col, rand.Intn(10000))
-	}
+func TestSelectionSortWithBigRandomCollection(t *testing.T) {
+	col := helper.GenRandomCollection(10000)
 
-	SelectionSort(col)
-
-	for i := 0; i < 999; i++ {
-		nextIdx := i + 1
-		if col[i] > col[nextIdx] {
-			t.Errorf("Value %d at index %d is bigger than value %d at index %d", col[i], i, col[nextIdx], nextIdx)
-		}
+	if SelectionSort(col); !helper.IsSorted(col) {
+		t.Errorf("Collection is not sorted\n%d", col)
 	}
 }

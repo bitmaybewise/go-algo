@@ -3,11 +3,13 @@ package main
 import (
 	"fmt"
 
+	"github.com/hlmerscher/go-algo/helper"
+
 	"github.com/hlmerscher/go-algo/algo"
 )
 
 func main() {
-	col := []int{7, 5, 1, 8, 3}
+	col := helper.GenRandomCollection(100)
 	algo.SelectionSort(col)
-	fmt.Println(col)
+	fmt.Printf("Selection sort:\n%v\n", col)
 }

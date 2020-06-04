@@ -1,2 +1,5 @@
 test:
-	go test ./**/* -v
+	go test ./algo/* -v
+
+play:
+	go run playground.go

@@ -9,8 +9,6 @@ func SelectionSort(collection []int) {
 				min = j
 			}
 		}
-		aux := collection[i]
-		collection[i] = collection[min]
-		collection[min] = aux
+		collection[i], collection[min] = collection[min], collection[i]
 	}
 }

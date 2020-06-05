@@ -6,10 +6,10 @@ import (
 	"github.com/hlmerscher/go-algo/helper"
 )
 
-func TestSelectionSort(t *testing.T) {
+func TestBubbleSort(t *testing.T) {
 	col := []int{7, 5, 1, 8, 3}
 	expected := []int{1, 3, 5, 7, 8}
-	SelectionSort(col)
+	BubbleSort(col)
 
 	for i := 0; i < len(col); i++ {
 		if col[i] != expected[i] {
@@ -18,10 +18,10 @@ func TestSelectionSort(t *testing.T) {
 	}
 }
 
-func TestSelectionSortWithBigRandomCollection(t *testing.T) {
+func TestBubbleSortWithBigRandomCollection(t *testing.T) {
 	col := helper.GenRandomCollection(10000)
 
-	if SelectionSort(col); !helper.IsSorted(col) {
+	if BubbleSort(col); !helper.IsSorted(col) {
 		t.Error("Collection is not sorted")
 	}
 }

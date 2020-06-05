@@ -1,12 +1,28 @@
 package helper
 
-import "math/rand"
+import (
+	"math/rand"
+)
 
 // GenRandomCollection generates random collection of integers up to N size
 func GenRandomCollection(n int) []int {
 	col := make([]int, n)
 	for i := 0; i < n; i++ {
 		col[i] = rand.Intn(n)
+	}
+	return col
+}
+
+// GenInvertedCollectionWithDefault generates a collection with values in descent order
+func GenInvertedCollectionWithDefault() []int {
+	return GenInvertedCollection(10000)
+}
+
+// GenInvertedCollection generates a collection with values in descent order
+func GenInvertedCollection(n int) []int {
+	col := make([]int, n)
+	for i := 0; i < n; i++ {
+		col[i] = n - i
 	}
 	return col
 }

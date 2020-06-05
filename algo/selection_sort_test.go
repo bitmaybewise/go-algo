@@ -25,3 +25,8 @@ func TestSelectionSortWithBigRandomCollection(t *testing.T) {
 		t.Error("Collection is not sorted")
 	}
 }
+
+func BenchmarkSelectionSortWorstCase(b *testing.B) {
+	col := helper.GenInvertedCollectionWithDefault()
+	SelectionSort(col)
+}

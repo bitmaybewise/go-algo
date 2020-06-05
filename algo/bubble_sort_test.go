@@ -25,3 +25,8 @@ func TestBubbleSortWithBigRandomCollection(t *testing.T) {
 		t.Error("Collection is not sorted")
 	}
 }
+
+func BenchmarkBubbleSortWorstCase(b *testing.B) {
+	col := helper.GenInvertedCollectionWithDefault()
+	BubbleSort(col)
+}

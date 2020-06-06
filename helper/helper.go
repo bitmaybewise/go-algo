@@ -61,7 +61,7 @@ func TestSortingRandomCollection(fn func(col []int)) func(t *testing.T) {
 		col := GenRandomCollection(10000)
 
 		if fn(col); !IsSorted(col) {
-			t.Error("Collection is not sorted")
+			t.Errorf("Collection is not sorted\n%v", col)
 		}
 	}
 }

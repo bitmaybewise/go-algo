@@ -5,4 +5,4 @@ bench:
 	go test -bench=. ./algo/*
 
 play:
-	go run playground.go
+	go run playground.go $(args)

@@ -5,6 +5,8 @@ import (
 	"testing"
 )
 
+const Limit = 10000
+
 // GenRandomCollection generates random collection of integers up to N size
 func GenRandomCollection(n int) []int {
 	col := make([]int, n)
@@ -14,9 +16,23 @@ func GenRandomCollection(n int) []int {
 	return col
 }
 
+// GenOrderedCollectionWithDefault generates a collection with values in ascent order
+func GenOrderedCollectionWithDefault() []int {
+	return GenOrderedCollection(Limit)
+}
+
+// GenOrderedCollection generates a collection with values in ascent order
+func GenOrderedCollection(n int) []int {
+	col := make([]int, n)
+	for i := 0; i < n; i++ {
+		col[i] = i
+	}
+	return col
+}
+
 // GenInvertedCollectionWithDefault generates a collection with values in descent order
 func GenInvertedCollectionWithDefault() []int {
-	return GenInvertedCollection(10000)
+	return GenInvertedCollection(Limit)
 }
 
 // GenInvertedCollection generates a collection with values in descent order
@@ -58,7 +74,7 @@ func TestSimpleSorting(fn func(col []int)) func(t *testing.T) {
 // TestSortingRandomCollection DRY function to test a random collection sorting case
 func TestSortingRandomCollection(fn func(col []int)) func(t *testing.T) {
 	return func(t *testing.T) {
-		col := GenRandomCollection(10000)
+		col := GenRandomCollection(Limit)
 
 		if fn(col); !IsSorted(col) {
 			t.Errorf("Collection is not sorted\n%v", col)

@@ -1,7 +1,5 @@
 package algo
 
-import "fmt"
-
 type TrieNodeChildren map[rune]*TrieNode
 
 type TrieNode struct {
@@ -67,7 +65,6 @@ func (t *Trie) collectAllWords(node *TrieNode, word string, words []string) []st
 
 func (t *Trie) Autocomplete(prefix string) []string {
 	node := t.search(prefix)
-	fmt.Println(node)
 	if node == nil {
 		return nil
 	}

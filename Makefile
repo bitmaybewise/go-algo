@@ -1,8 +1,11 @@
 test:
+	go test ./algo/*
+
+test-verbose:
 	go test ./algo/* -v
 
 test1:
-	go test ./algo/* -run $(name)
+	go test -v ./algo/* -run $(name)
 
 bench:
 	go test -bench=. ./algo/*

@@ -5,13 +5,13 @@ import (
 	"testing"
 )
 
-func TestPermutations(t *testing.T) {
+func TestGeneratePermutations(t *testing.T) {
 	for i := 0; i < 4; i++ {
 		t.Run(fmt.Sprintf("Permute %d", i), func(t *testing.T) {
-			p := Permutations(i)
+			p := GeneratePermutations(i)
 
 			if fac := Factorial(i); len(p) != fac {
-				t.Errorf("Should have %d permutations", fac)
+				t.Errorf("Should have %d permutations instead of %d", fac, len(p))
 			}
 
 			resultsAsStrings := make(map[string]int)

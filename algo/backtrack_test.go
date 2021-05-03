@@ -35,7 +35,7 @@ func TestGeneratePermutations(t *testing.T) {
 
 func TestGenerateSubgroups(t *testing.T) {
 	acc := make(map[string]bool)
-	for _, subgroup := range GenerateSubsets(3) {
+	for _, subgroup := range GenerateSubgroups(3) {
 		acc[fmt.Sprintf("%v", subgroup)] = true
 	}
 

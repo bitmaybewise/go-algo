@@ -50,6 +50,38 @@ func newPermutation(n int) permutation {
 	}
 }
 
+type subgroups struct {
+	CombinationLength    int
+	Results              [][]int
+	temporaryCombination []int
+}
+
+func (p *subgroups) IsSolution(_ []int, currentIndex, combinationLength int) bool {
+	return currentIndex == combinationLength
+}
+
+func (p *subgroups) ProcessSolution(aCombination []int, currentIndex int) {
+	newCombination := make([]int, 0)
+	for i := 1; i <= currentIndex; i++ {
+		if aCombination[i] == 1 {
+			newCombination = append(newCombination, i)
+		}
+	}
+	p.Results = append(p.Results, newCombination)
+}
+
+func (p *subgroups) ConstructCandidate(temporaryCombination []int, currentIndex, combinationLength int) []int {
+	return []int{1, 0}
+}
+
+func newSubgroups(n int) subgroups {
+	return subgroups{
+		CombinationLength:    n,
+		Results:              make([][]int, 0),
+		temporaryCombination: make([]int, n+1),
+	}
+}
+
 func Backtrack(b Backtrackable, temporaryCombination []int, currentIndex, length int) {
 	if b.IsSolution(temporaryCombination, currentIndex, length) {
 		b.ProcessSolution(temporaryCombination, currentIndex)
@@ -68,4 +100,10 @@ func GeneratePermutations(n int) [][]int {
 	p := newPermutation(n)
 	Backtrack(&p, p.temporaryCombination, 0, p.CombinationLength)
 	return p.Results
+}
+
+func GenerateSubsets(n int) [][]int {
+	s := newSubgroups(n)
+	Backtrack(&s, s.temporaryCombination, 0, s.CombinationLength)
+	return s.Results
 }

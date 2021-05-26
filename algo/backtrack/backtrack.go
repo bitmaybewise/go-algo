@@ -1,4 +1,4 @@
-package algo
+package backtrack
 
 type Backtrackable interface {
 	ConstructCandidate(temporaryCombination []int, currentIndex, combinationLength int) []int

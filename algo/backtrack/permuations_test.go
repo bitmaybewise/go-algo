@@ -1,8 +1,11 @@
-package algo
+package backtrack
 
 import (
 	"fmt"
 	"testing"
+
+	"github.com/hlmerscher/go-algo/algo"
+	"github.com/hlmerscher/go-algo/misc"
 )
 
 func TestGeneratePermutations(t *testing.T) {
@@ -10,14 +13,14 @@ func TestGeneratePermutations(t *testing.T) {
 		t.Run(fmt.Sprintf("Permute %d", i), func(t *testing.T) {
 			p := GeneratePermutations(i)
 
-			if fac := Factorial(i); len(p) != fac {
+			if fac := misc.Factorial(i); len(p) != fac {
 				t.Errorf("Should have %d permutations instead of %d", fac, len(p))
 			}
 
 			resultsAsStrings := make(map[string]int)
 			for _, result := range p {
 				resultsAsStrings[fmt.Sprintf("%v", result)]++
-				set := SetFromValues(result...)
+				set := algo.SetFromValues(result...)
 
 				if set.Size() != i {
 					t.Errorf("Permutation has duplicates: %v\n", result)
@@ -30,28 +33,5 @@ func TestGeneratePermutations(t *testing.T) {
 				}
 			}
 		})
-	}
-}
-
-func TestGenerateSubgroups(t *testing.T) {
-	acc := make(map[string]bool)
-	for _, subgroup := range GenerateSubgroups(3) {
-		acc[fmt.Sprintf("%v", subgroup)] = true
-	}
-
-	expectedSubgroups := []string{
-		"[]",
-		"[1]",
-		"[2]",
-		"[3]",
-		"[1 2]",
-		"[1 3]",
-		"[2 3]",
-		"[1 2 3]",
-	}
-	for _, value := range expectedSubgroups {
-		if ok := acc[value]; !ok {
-			t.Errorf("Subgroup %s not found", value)
-		}
 	}
 }

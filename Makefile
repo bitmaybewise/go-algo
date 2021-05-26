@@ -1,14 +1,14 @@
 test:
-	go test ./algo/*
+	go test ./...
 
 test-verbose:
-	go test ./algo/* -v
+	go test ./... -v
 
 test1:
-	go test -v ./algo/* -run $(name)
+	go test -v ./... -run $(name)
 
 bench:
-	go test -bench=. ./algo/*
+	go test -bench=. ./...
 
 play:
 	go run playground.go $(args)

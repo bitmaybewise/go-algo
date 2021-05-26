@@ -1,4 +1,4 @@
-package algo
+package backtrack
 
 type permutation struct {
 	CombinationLength    int

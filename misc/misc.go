@@ -1,4 +1,4 @@
-package algo
+package misc
 
 func Factorial(n int) int {
 	var factorial func(n, acc int) int

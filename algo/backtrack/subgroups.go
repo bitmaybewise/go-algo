@@ -1,4 +1,4 @@
-package algo
+package backtrack
 
 type subgroups struct {
 	CombinationLength    int

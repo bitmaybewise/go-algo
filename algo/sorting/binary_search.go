@@ -1,4 +1,4 @@
-package algo
+package sorting
 
 func BinarySearch(collection []int, value int) int {
 	return binary_search(collection, value, 0, len(collection)-1)

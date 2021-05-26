@@ -1,4 +1,4 @@
-package algo
+package sorting
 
 func BubbleSort(collection []int) {
 	size := len(collection)

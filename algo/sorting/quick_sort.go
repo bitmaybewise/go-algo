@@ -1,4 +1,4 @@
-package algo
+package sorting
 
 func QuickSort(collection []int) {
 	if len(collection) > 1 {

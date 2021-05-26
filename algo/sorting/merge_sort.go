@@ -1,4 +1,4 @@
-package algo
+package sorting
 
 func MergeSort(collection []int) {
 	size := len(collection)

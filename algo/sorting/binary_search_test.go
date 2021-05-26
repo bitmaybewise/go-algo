@@ -1,13 +1,13 @@
-package algo
+package sorting
 
 import (
 	"testing"
 
-	"github.com/hlmerscher/go-algo/helper"
+	"github.com/hlmerscher/go-algo/misc"
 )
 
 func TestBinarySearch(t *testing.T) {
-	collection := helper.GenOrderedCollectionWithDefault()
+	collection := misc.GenOrderedCollectionWithDefault()
 
 	t.Run("Not found with single item", func(t *testing.T) {
 		if idx := BinarySearch([]int{7}, -5); idx != -1 {
@@ -32,6 +32,6 @@ func TestBinarySearch(t *testing.T) {
 }
 
 func BenchmarkBinarySearch(b *testing.B) {
-	collection := helper.GenOrderedCollectionWithDefault()
+	collection := misc.GenOrderedCollectionWithDefault()
 	BinarySearch(collection, 1)
 }

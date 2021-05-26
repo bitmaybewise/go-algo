@@ -3,7 +3,7 @@ package algo
 import (
 	"testing"
 
-	"github.com/hlmerscher/go-algo/helper"
+	"github.com/hlmerscher/go-algo/misc"
 )
 
 func TestKthLowest(t *testing.T) {
@@ -27,6 +27,6 @@ func TestKthLowest(t *testing.T) {
 }
 
 func BenchmarkKthLowest(b *testing.B) {
-	collection := helper.GenRandomCollection(helper.Limit)
+	collection := misc.GenRandomCollection(misc.Limit)
 	KthLowest(collection, 0)
 }

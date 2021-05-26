@@ -1,4 +1,4 @@
-package algo
+package sorting
 
 func SelectionSort(collection []int) {
 	size := len(collection)

@@ -1,4 +1,4 @@
-package algo
+package sorting
 
 func InsertionSort(collection []int) {
 	size := len(collection)
